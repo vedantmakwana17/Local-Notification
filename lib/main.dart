@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: 'Local Notifications Demo',
-    home: Notify(),
-  ));
+  runApp(
+    MaterialApp(
+      title: 'Local Notifications Demo',
+      home: Notify(),
+      debugShowCheckedModeBanner: false,
+    ),
+  );
 }
 
 class Notify extends StatefulWidget {
@@ -17,11 +20,11 @@ class Notify extends StatefulWidget {
 
 class _NotifyState extends State<Notify> {
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-  FlutterLocalNotificationsPlugin();
+      FlutterLocalNotificationsPlugin();
 
   Future<void> _showNotification() async {
     var initializationSettingsAndroid =
-    const AndroidInitializationSettings('@mipmap/ic_launcher');
+        const AndroidInitializationSettings('@mipmap/ic_launcher');
     var initializationSettingsIOS = const IOSInitializationSettings();
     var initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
@@ -60,11 +63,13 @@ class _NotifyState extends State<Notify> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("notify"),
+        backgroundColor: Colors.indigo,
+        title: const Text(" Local Notification"),
         centerTitle: true,
       ),
       body: Center(
         child: ElevatedButton(
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
           onPressed: () => _showNotification(),
           child: const Text('Show Notification'),
         ),
