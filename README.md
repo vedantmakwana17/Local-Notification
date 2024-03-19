@@ -1,4 +1,4 @@
-# local_notify
+# local notification
 
 A new Flutter project.
 
